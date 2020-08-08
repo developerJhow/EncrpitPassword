@@ -1,6 +1,3 @@
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\EncryptionandDecryption.exe.config
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\EncryptionandDecryption.exe
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\EncryptionandDecryption.pdb
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Guna.UI2.dll
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Npgsql.dll
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\System.Threading.Tasks.Extensions.dll
@@ -12,11 +9,21 @@ C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\System.Buffers.dll
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\System.Text.Encodings.Web.dll
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.csprojAssemblyReference.cache
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.exe.config
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.Form1.resources
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.Properties.Resources.resources
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.csproj.GenerateResource.cache
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.csproj.CoreCompileInputs.cache
 C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.csproj.CopyComplete
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.exe
-C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.pdb
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.Login.resources
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\EncryptionandDecryption.TelaInicial.resources
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Login Ondly Solutions.exe.config
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Login Ondly Solutions.exe.manifest
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Login Ondly Solutions.application
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Login Ondly Solutions.exe
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\bin\Debug\Login Ondly Solutions.pdb
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.exe.config
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.TrustInfo.xml
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.exe.manifest
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.application
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.exe
+C:\Users\JoaoMarcos\source\repos\EncryptionandDecryption\EncryptionandDecryption\obj\Debug\Login Ondly Solutions.pdb

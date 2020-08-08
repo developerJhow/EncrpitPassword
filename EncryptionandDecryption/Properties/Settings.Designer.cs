@@ -26,10 +26,11 @@ namespace EncryptionandDecryption.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Host=localhost;Database=LoginDB;Username=postgres;Password=\"Amor=4002\"")]
-        public string LoginDBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AU8FHEB\\SQLSERVER;Initial Catalog=LoginDB;Persist Security In" +
+            "fo=True;User ID=sa;Password=Casa1234")]
+        public string LoginDBConnectionStringSQL {
             get {
-                return ((string)(this["LoginDBConnectionString"]));
+                return ((string)(this["LoginDBConnectionStringSQL"]));
             }
         }
     }

@@ -1,27 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Npgsql;
-
+using System.Data.SqlClient;
+using System;
+using System.Threading;
 
 namespace EncryptionandDecryption
 {
     public partial class Form1 : Form
     {
+        Thread th;
 
         public Form1()
         {
             InitializeComponent();
 
         }
+        public static Form1 Form1Instance;
 
-        NpgsqlConnection con = new NpgsqlConnection("Host=localhost;Database=LoginDB;Username=postgres;Password=40028922;");
+
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-AU8FHEB\SQLSERVER;Initial Catalog=LoginDB;Persist Security Info=True;User ID=sa;Password=Casa1234");
 
 
         private void Guna2GradientButton1_Click(object sender, EventArgs e)
@@ -33,14 +35,10 @@ namespace EncryptionandDecryption
                     string UserName = txtUserName.Text;
                     string Password = Cryptography.Encrypt(txtPassword.Text.ToString());   // Passing the Password to Encrypt method and the method will return encrypted string and stored in Password variable.  
                     con.Open();
-
-                    
-                    NpgsqlCommand insert = new NpgsqlCommand("INSERT INTO tblUserRegistration(UserName,Password)values('" + UserName + "','" + Password + "')", con);
-
+                    SqlCommand insert = new SqlCommand("insert into tblUserRegistration(UserName,Password)values('" + UserName + "','" + Password + "')", con);
                     insert.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
                 }
                 else
                 {
@@ -56,6 +54,20 @@ namespace EncryptionandDecryption
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openform);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+
+        private void openform()
+        {
+            Application.Run(new Login());
         }
     }
 }

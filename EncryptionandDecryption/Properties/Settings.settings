@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EncryptionandDecryption.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="LoginDBConnectionString" Type="(Connection string)" Scope="Application">
+    <Setting Name="LoginDBConnectionStringSQL" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Host=localhost;Database=LoginDB;Username=postgres;Password="Amor=4002"&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;Npgsql&lt;/ProviderName&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-AU8FHEB\SQLSERVER;Initial Catalog=LoginDB;Persist Security Info=True;User ID=sa;Password=Casa1234&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Host=localhost;Database=LoginDB;Username=postgres;Password="Amor=4002"</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-AU8FHEB\SQLSERVER;Initial Catalog=LoginDB;Persist Security Info=True;User ID=sa;Password=Casa1234</Value>
     </Setting>
   </Settings>
 </SettingsFile>

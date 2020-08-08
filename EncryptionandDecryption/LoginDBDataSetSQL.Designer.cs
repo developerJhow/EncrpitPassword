@@ -20,9 +20,9 @@ namespace EncryptionandDecryption {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("LoginDBDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("LoginDBDataSetSQL")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class LoginDBDataSet1 : global::System.Data.DataSet {
+    public partial class LoginDBDataSetSQL : global::System.Data.DataSet {
         
         private tblUserRegistrationDataTable tabletblUserRegistration;
         
@@ -30,7 +30,7 @@ namespace EncryptionandDecryption {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public LoginDBDataSet1() {
+        public LoginDBDataSetSQL() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace EncryptionandDecryption {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected LoginDBDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected LoginDBDataSetSQL(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace EncryptionandDecryption {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            LoginDBDataSet1 cln = ((LoginDBDataSet1)(base.Clone()));
+            LoginDBDataSetSQL cln = ((LoginDBDataSetSQL)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace EncryptionandDecryption {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "LoginDBDataSet1";
+            this.DataSetName = "LoginDBDataSetSQL";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/LoginDBDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/LoginDBDataSetSQL.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tabletblUserRegistration = new tblUserRegistrationDataTable();
@@ -225,7 +225,7 @@ namespace EncryptionandDecryption {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            LoginDBDataSet1 ds = new LoginDBDataSet1();
+            LoginDBDataSetSQL ds = new LoginDBDataSetSQL();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -434,8 +434,8 @@ namespace EncryptionandDecryption {
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnUserName.AllowDBNull = false;
                 this.columnUserName.MaxLength = 50;
                 this.columnPassword.MaxLength = 200;
             }
@@ -505,7 +505,7 @@ namespace EncryptionandDecryption {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                LoginDBDataSet1 ds = new LoginDBDataSet1();
+                LoginDBDataSetSQL ds = new LoginDBDataSetSQL();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -593,7 +593,12 @@ namespace EncryptionandDecryption {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string UserName {
                 get {
-                    return ((string)(this[this.tabletblUserRegistration.UserNameColumn]));
+                    try {
+                        return ((string)(this[this.tabletblUserRegistration.UserNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UserName\' na tabela \'tblUserRegistration\' é DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tabletblUserRegistration.UserNameColumn] = value;
@@ -614,6 +619,18 @@ namespace EncryptionandDecryption {
                 set {
                     this[this.tabletblUserRegistration.PasswordColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUserNameNull() {
+                return this.IsNull(this.tabletblUserRegistration.UserNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUserNameNull() {
+                this[this.tabletblUserRegistration.UserNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -664,7 +681,7 @@ namespace EncryptionandDecryption {
         }
     }
 }
-namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
+namespace EncryptionandDecryption.LoginDBDataSetSQLTableAdapters {
     
     
     /// <summary>
@@ -678,13 +695,13 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class tblUserRegistrationTableAdapter : global::System.ComponentModel.Component {
         
-        private global::Npgsql.NpgsqlDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::Npgsql.NpgsqlConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::Npgsql.NpgsqlTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::Npgsql.NpgsqlCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
@@ -696,7 +713,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::Npgsql.NpgsqlDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -707,7 +724,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::Npgsql.NpgsqlConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -727,7 +744,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::Npgsql.NpgsqlCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -735,7 +752,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::Npgsql.NpgsqlTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -761,7 +778,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::Npgsql.NpgsqlCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -784,7 +801,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::Npgsql.NpgsqlDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "tblUserRegistration";
@@ -792,134 +809,55 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("UserName", "UserName");
             tableMapping.ColumnMappings.Add("Password", "Password");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"LoginDB\".\"public\".\"tblUserRegistration\" WHERE ((\"Id\" = @Original_Id)" +
-                " AND (\"UserName\" = @Original_UserName) AND ((@IsNull_Password = 1 AND \"Password\"" +
-                " IS NULL) OR (\"Password\" = @Original_Password)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblUserRegistration] WHERE (([Id] = @Original_Id) AND ((@IsNul" +
+                "l_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND" +
+                " ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Passw" +
+                "ord)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_Id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_UserName";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "UserName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@IsNull_Password";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_Password";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"LoginDB\".\"public\".\"tblUserRegistration\" (\"UserName\", \"Password\") VAL" +
-                "UES (@UserName, @Password)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblUserRegistration] ([UserName], [Password]) VALUES (@UserNam" +
+                "e, @Password);\r\nSELECT Id, UserName, Password FROM tblUserRegistration WHERE (Id" +
+                " = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@UserName";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "UserName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Password";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"LoginDB\".\"public\".\"tblUserRegistration\" SET \"UserName\" = @UserName, \"Pass" +
-                "word\" = @Password WHERE ((\"Id\" = @Original_Id) AND (\"UserName\" = @Original_UserN" +
-                "ame) AND ((@IsNull_Password = 1 AND \"Password\" IS NULL) OR (\"Password\" = @Origin" +
-                "al_Password)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tblUserRegistration] SET [UserName] = @UserName, [Password] = @Password WHERE (([Id] = @Original_Id) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)));
+SELECT Id, UserName, Password FROM tblUserRegistration WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@UserName";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "UserName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Password";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_Id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_UserName";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "UserName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@IsNull_Password";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_Password";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "Password";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::Npgsql.NpgsqlConnection();
-            this._connection.ConnectionString = global::EncryptionandDecryption.Properties.Settings.Default.LoginDBConnectionString;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::EncryptionandDecryption.Properties.Settings.Default.LoginDBConnectionStringSQL;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
-            this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"Id\", \"UserName\", \"Password\" FROM \"public\".\"tblUserRegistration\"";
+            this._commandCollection[0].CommandText = "SELECT Id, UserName, Password FROM dbo.tblUserRegistration";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -927,7 +865,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(LoginDBDataSet1.tblUserRegistrationDataTable dataTable) {
+        public virtual int Fill(LoginDBDataSetSQL.tblUserRegistrationDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -940,9 +878,9 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual LoginDBDataSet1.tblUserRegistrationDataTable GetData() {
+        public virtual LoginDBDataSetSQL.tblUserRegistrationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            LoginDBDataSet1.tblUserRegistrationDataTable dataTable = new LoginDBDataSet1.tblUserRegistrationDataTable();
+            LoginDBDataSetSQL.tblUserRegistrationDataTable dataTable = new LoginDBDataSetSQL.tblUserRegistrationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -950,14 +888,14 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LoginDBDataSet1.tblUserRegistrationDataTable dataTable) {
+        public virtual int Update(LoginDBDataSetSQL.tblUserRegistrationDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LoginDBDataSet1 dataSet) {
+        public virtual int Update(LoginDBDataSetSQL dataSet) {
             return this.Adapter.Update(dataSet, "tblUserRegistration");
         }
         
@@ -980,21 +918,23 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int @Original_Id, string @Original_UserName, string @Original_Password) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(@Original_Id));
-            if ((@Original_UserName == null)) {
-                throw new global::System.ArgumentNullException("@Original_UserName");
+        public virtual int Delete(int Original_Id, string Original_UserName, string Original_Password) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
+            if ((Original_UserName == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(@Original_UserName));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_UserName));
             }
-            if ((@Original_Password == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((Original_Password == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(@Original_Password));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1016,18 +956,18 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string @UserName, string @Password) {
-            if ((@UserName == null)) {
-                throw new global::System.ArgumentNullException("@UserName");
+        public virtual int Insert(string UserName, string Password) {
+            if ((UserName == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(@UserName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(UserName));
             }
-            if ((@Password == null)) {
+            if ((Password == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(@Password));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1049,34 +989,37 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string @UserName, string @Password, int @Original_Id, string @Original_UserName, string @Original_Password) {
-            if ((@UserName == null)) {
-                throw new global::System.ArgumentNullException("@UserName");
+        public virtual int Update(string UserName, string Password, int Original_Id, string Original_UserName, string Original_Password, int Id) {
+            if ((UserName == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(@UserName));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(UserName));
             }
-            if ((@Password == null)) {
+            if ((Password == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(@Password));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Password));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(@Original_Id));
-            if ((@Original_UserName == null)) {
-                throw new global::System.ArgumentNullException("@Original_UserName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(@Original_UserName));
-            }
-            if ((@Original_Password == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Id));
+            if ((Original_UserName == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(@Original_Password));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_UserName));
             }
+            if ((Original_Password == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Password));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1091,6 +1034,14 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string UserName, string Password, int Original_Id, string Original_UserName, string Original_Password) {
+            return this.Update(UserName, Password, Original_Id, Original_UserName, Original_Password, Original_Id);
         }
     }
     
@@ -1185,7 +1136,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(LoginDBDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(LoginDBDataSetSQL dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblUserRegistrationTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tblUserRegistration.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1204,7 +1155,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(LoginDBDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(LoginDBDataSetSQL dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblUserRegistrationTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tblUserRegistration.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1222,7 +1173,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(LoginDBDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(LoginDBDataSetSQL dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tblUserRegistrationTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblUserRegistration.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1264,7 +1215,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(LoginDBDataSet1 dataSet) {
+        public virtual int UpdateAll(LoginDBDataSetSQL dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
@@ -1310,8 +1261,8 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
                 //
                 if ((this._tblUserRegistrationTableAdapter != null)) {
                     revertConnections.Add(this._tblUserRegistrationTableAdapter, this._tblUserRegistrationTableAdapter.Connection);
-                    this._tblUserRegistrationTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(workConnection));
-                    this._tblUserRegistrationTableAdapter.Transaction = ((global::Npgsql.NpgsqlTransaction)(workTransaction));
+                    this._tblUserRegistrationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tblUserRegistrationTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
                     if (this._tblUserRegistrationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tblUserRegistrationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tblUserRegistrationTableAdapter.Adapter);
@@ -1376,7 +1327,7 @@ namespace EncryptionandDecryption.LoginDBDataSet1TableAdapters {
                     workConnection.Close();
                 }
                 if ((this._tblUserRegistrationTableAdapter != null)) {
-                    this._tblUserRegistrationTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._tblUserRegistrationTableAdapter]));
+                    this._tblUserRegistrationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblUserRegistrationTableAdapter]));
                     this._tblUserRegistrationTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
